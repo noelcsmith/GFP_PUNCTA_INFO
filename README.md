@@ -1,21 +1,15 @@
 # GFP_PUNCTA_INFO
-#
 import pandas as pd
-#
 import glob
-#
+
 csv_files_path = '/Users/noel/Desktop/GFPCSV/*.csv'
-#
 all_csv_files = glob.glob(csv_files_path);
-#
+
 GFPsurfaceSUM_results = []
-#
 GFPsurfaceAVG_results = []
-#
 GFPvolumeSUM_results = []
-#
 GFPvolumeAVG_results = []
-#
+
 for csv_file in all_csv_files:
     df = pd.read_csv(csv_file)
     
@@ -39,7 +33,6 @@ results_df = pd.DataFrame({
     'GFPsurfaceAvgResults': GFPsurfaceAVG_results
 })
 
-# Ensure the directory exists before saving
 output_dir = '/Users/noel/Desktop'
 output_file = f"{output_dir}/GFPpunctaResults.csv"
 results_df.to_csv(output_file, index=False)
